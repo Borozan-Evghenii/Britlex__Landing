@@ -20,18 +20,18 @@ const swiper = new Swiper(".testimonial-slider", {
     // when window width is >= 320px
     320: {
       slidesPerView: 1,
-      spaceBetween: 20
+      spaceBetween: 20,
     },
     // when window width is >= 480px
     480: {
       slidesPerView: 2,
-      spaceBetween: 20
+      spaceBetween: 20,
     },
     // when window width is >= 640px
     800: {
       slidesPerView: 3,
-      spaceBetween: 20
-    }
+      spaceBetween: 20,
+    },
   },
   // If we need pagination
   pagination: {
@@ -40,3 +40,32 @@ const swiper = new Swiper(".testimonial-slider", {
 });
 
 // testimonial Swiper
+
+//dropdown
+
+const dropdown = document.querySelectorAll(".dropdown-btn");
+const dropdownMenu = document.querySelectorAll(".dropdown .dropdown-items");
+const menuItems = document.querySelectorAll(".dropdown-items li");
+const dropdoewnText = document.querySelector(".dropdown-tex");
+
+console.log(menuItems);
+
+dropdown.forEach((e) => {
+  e.addEventListener("click", (e) => {
+    e.currentTarget.parentElement.lastElementChild.classList.add(
+      "active-dropdown"
+    );
+  });
+});
+
+menuItems.forEach((e) => {
+  e.addEventListener("click", (e) => {
+    e.currentTarget.parentElement.parentElement.parentElement.querySelector(
+      ".dropdown-text"
+    ).innerText = e.currentTarget.innerText;
+    e.currentTarget.parentElement.parentElement.classList.remove(
+      "active-dropdown"
+    );
+  });
+});
+//dropdown
