@@ -234,6 +234,30 @@ body {
     }
   }
 }
+
+.col {
+  a {
+    color: var(--gray);
+    @media screen and (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+  &-heading {
+    font-size: 1.37rem;
+    font-weight: 600;
+    color: var(--accent);
+    @media screen and (max-width: 768px) {
+      font-size: 1.1rem;
+    }
+  }
+  ul {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.125rem;
+  }
+}
+
 // General
 
 // Header
@@ -696,3 +720,95 @@ body {
 }
 
 // propose
+//faq
+
+.faq {
+  padding: 6.25rem 0;
+  background-color: #fffae9;
+  .heading-group {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    color: var(--gray);
+    p {
+      font-size: 1.12rem;
+    }
+    .heading-descriptor {
+      a {
+        font-weight: 500;
+        color: var(--accent);
+        text-decoration: none;
+      }
+    }
+  }
+  .section-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+//faq
+
+//footer
+
+.footer {
+  background-color: #fffae9;
+  padding: 3.125rem 0;
+  border-top: 1px solid var(--gray);
+  &-wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 1.2rem;
+    justify-content: center;
+    @media screen and (max-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 1.2rem;
+      row-gap: 2rem;
+      grid-auto-flow: dense;
+    }
+  }
+  .bottom-footer-wrapper {
+    margin: 3.125rem 0 0 0;
+    padding: 1.75rem 0;
+    border-top: 1px solid var(--gray);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    ul {
+      display: flex;
+      gap: 1.12rem;
+      flex-wrap: wrap;
+      align-items: center;
+      a {
+        color: var(--gray);
+      }
+    }
+    .bottom-footer-heading {
+      font-size: 1.37rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .copywrite-social {
+      margin-top: 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      color: var(--gray);
+      gap: 1rem;
+      justify-content: space-between;
+      @media screen and (max-width: 425px) {
+        width: 100%;
+        justify-content: center;
+      }
+      a {
+        color: var(--accent);
+        font-size: 2.25rem;
+      }
+    }
+  }
+}
+
+//footer
