@@ -1,12 +1,16 @@
 @import url(../node_modules/reset.css/reset.css);
 @import url(../node_modules/normalize.css/normalize.css);
-
+@import url(../node_modules/swiper/swiper-bundle.css);
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
+p {
+  font-size: 1rem;
+  line-height: 1.5;
+  max-width: 570px;
+}
 // Font
 @font-face {
   font-family: "NeueMontreal";
@@ -81,6 +85,16 @@ body {
   }
 }
 
+.button-grup {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  @media screen and (max-width: 375px) {
+    width: 100%;
+    flex-direction: column !important;
+  }
+}
+
 .button {
   font-size: 1rem;
   padding: 0 1.5rem;
@@ -142,6 +156,82 @@ body {
     height: 16px;
     border-radius: 100px;
     background-color: var(--accent);
+  }
+}
+
+.section-heading {
+  max-width: 570px;
+}
+
+.cards-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.875rem;
+  @media screen and (max-width: 900px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2.62rem 1.37rem;
+  gap: 1.25rem;
+  line-height: 1.5;
+  background-color: #fffae9;
+  .card-descriptor--accent {
+    font-weight: 600;
+  }
+}
+
+.testimonial-card {
+  text-align: left;
+  border-radius: 12px;
+  background-color: var(--white);
+  padding: 2.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.87rem;
+  max-width: 370px;
+  p {
+    color: var(--gray);
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    .name {
+      font-weight: 600;
+      color: var(--accent);
+    }
+    p {
+      color: var(--gray);
+    }
+    figure {
+      border-radius: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--yelow);
+      width: 64px;
+      height: 64px;
+    }
+  }
+  &__decor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    .decor-line {
+      width: 100%;
+      height: 2px;
+      background-color: var(--gray);
+      opacity: 0.3;
+    }
   }
 }
 // General
@@ -367,10 +457,13 @@ body {
 .about {
   .section-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr) );
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
     align-items: center;
     justify-content: center;
     column-gap: 8.125rem;
+    img {
+      width: 100%;
+    }
   }
   .section-description {
     display: flex;
@@ -388,4 +481,218 @@ body {
   }
 }
 
+@media screen and (max-width: 1024px) {
+  .about {
+    .section-wrapper {
+      column-gap: 2.125rem;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .about {
+    .section-wrapper {
+      row-gap: 2.125rem;
+      grid-template-columns: 1fr;
+      figure {
+        grid-row: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      img {
+        max-width: 60%;
+      }
+    }
+  }
+}
 //About
+
+//Learnway
+.learn-way {
+  .section-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4.375rem;
+  }
+  .section-heading {
+    text-align: center;
+  }
+}
+//Learnway
+
+//boost
+.boost {
+  .section-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    align-items: center;
+    justify-content: center;
+    column-gap: 8.125rem;
+    img {
+      width: 100%;
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
+      button {
+        background-color: var(--yelow);
+        color: var(--accent);
+        border-color: var(--yelow);
+      }
+    }
+  }
+}
+@media screen and (max-width: 1024px) {
+  .boost {
+    .section-wrapper {
+      column-gap: 2.125rem;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .boost {
+    .section-wrapper {
+      row-gap: 2.125rem;
+      grid-template-columns: 1fr;
+      figure {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      img {
+        max-width: 60%;
+      }
+    }
+  }
+}
+//boost
+
+//countdown
+
+.countdown {
+  background-color: var(--red);
+  position: relative;
+  &-bg-item:nth-of-type(1) {
+    position: absolute;
+    display: block;
+    width: 35px;
+    height: 35px;
+    top: 50%;
+    left: 3%;
+    opacity: 0.3;
+    transform: translate(0, -50%);
+    img {
+      width: 100%;
+    }
+  }
+  &-bg-item:nth-of-type(2) {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    opacity: 0.3;
+    transform: translate(0, -50%);
+    img {
+      width: 100%;
+    }
+  }
+  .section-wrapper {
+    padding: 6.25rem 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+    @media screen and (max-width: 1100px) {
+      justify-content: center;
+      gap: 5rem;
+    }
+    @media screen and (max-width: 400px) {
+      justify-content: center;
+      gap: 2.5rem;
+    }
+  }
+  .feature-item {
+    font-weight: 600;
+    font-size: 2.25rem;
+  }
+}
+
+//countdown
+
+//testimonial
+
+.testimonial {
+  background-color: #fffae9;
+  padding: 6.25rem 0;
+  text-align: center;
+  .section-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 4.37rem;
+    .heading-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+  }
+  .testimonial-slider {
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
+//testimonial
+
+// propose
+
+.propose {
+  background-color: var(--accent-light);
+  padding: 6.25rem 0;
+  .section-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    align-items: center;
+    justify-content: center;
+    column-gap: 8.125rem;
+  }
+  .heading {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+    font-size: 2.8rem;
+  }
+  .content-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+  }
+  button {
+    height: 58px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .propose {
+    .section-wrapper {
+      column-gap: 2.125rem;
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .propose {
+    .section-wrapper {
+      row-gap: 2.125rem;
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// propose
